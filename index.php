@@ -1,8 +1,12 @@
 <?php
   	session_start();
   	if(isset($_SESSION['admin'])){
-    	header('location:home.php');
+    	header('location: admin/home.php');
   	}
+
+    if(isset($_SESSION['voter'])){
+      header('location: home.php');
+    }
 ?>
 <?php include 'includes/header.php'; ?>
 <body class="hold-transition login-page">
@@ -16,7 +20,7 @@
 
     	<form action="login.php" method="POST">
       		<div class="form-group has-feedback">
-        		<input type="text" class="form-control" name="username" placeholder="Username" required>
+        		<input type="text" class="form-control" name="voter" placeholder="Voter's ID" required>
         		<span class="glyphicon glyphicon-user form-control-feedback"></span>
       		</div>
           <div class="form-group has-feedback">
